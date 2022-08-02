@@ -13,6 +13,8 @@ let snakePosX = 0;
 let snakePosY = canvas.height/2 - snakeSize/2
 let snakeSpeed = 5;
 
+let velocityX = 0;
+let velocityY = 0;
 
 /**
  * Loop game
@@ -28,7 +30,9 @@ function gameLoop(){
  * Move snake
  */
 function moveStuff(){
-    // snakePosX += snakeSpeed;
+    snakePosX += snakeSpeed * velocityX;
+    snakePosY += snakeSpeed * velocityY;
+
     if (snakePosX > canvas.width){
         snakePosX = 0
     }
@@ -62,16 +66,20 @@ function rectangle(color,x,y,width,height){
 function keyPush(event){
     switch(event.key){
         case 'ArrowUp':
-            snakePosY -= snakeSpeed;
+            velocityX = 0;
+            velocityY = -1;
             break;
         case 'ArrowDown':
-            snakePosY += snakeSpeed;
+            velocityX = 0;
+            velocityY = 1;
             break;
         case 'ArrowRight':
-            snakePosX += snakeSpeed;
+            velocityX = 1;
+            velocityY = 0;
             break;
         case 'ArrowLeft':
-            snakePosX -= snakeSpeed;
+            velocityX = -1;
+            velocityY = 0;
             break;
     }
 }

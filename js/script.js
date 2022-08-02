@@ -34,18 +34,18 @@ function moveStuff(){
     snakePosY += snakeSpeed * velocityY;
 
     if (snakePosX > canvas.width){
-        snakePosX = 0
+        snakePosX = 0;
     }
 
-    if (snakePosX < 0){
+    if (snakePosX < -snakeSize){
         snakePosX = canvas.width;
     }
 
     if (snakePosY > canvas.height){
-        snakePosY = 0
+        snakePosY = 0;
     }
 
-    if (snakePosY < 0){
+    if (snakePosY < -snakeSize){
         snakePosY = canvas.height;
     }
 }

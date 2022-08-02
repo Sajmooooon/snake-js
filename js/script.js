@@ -37,8 +37,16 @@ function moveStuff(){
         snakePosX = 0
     }
 
+    if (snakePosX < 0){
+        snakePosX = canvas.width;
+    }
+
     if (snakePosY > canvas.height){
         snakePosY = 0
+    }
+
+    if (snakePosY < 0){
+        snakePosY = canvas.height;
     }
 }
 

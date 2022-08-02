@@ -74,20 +74,28 @@ function rectangle(color,x,y,width,height){
 function keyPush(event){
     switch(event.key){
         case 'ArrowUp':
-            velocityX = 0;
-            velocityY = -1;
+            if (velocityY !== 1) {
+                velocityX = 0;
+                velocityY = -1;
+            }
             break;
         case 'ArrowDown':
-            velocityX = 0;
-            velocityY = 1;
+            if (velocityY !== -1){
+                velocityX = 0;
+                velocityY = 1;
+            }
             break;
         case 'ArrowRight':
-            velocityX = 1;
-            velocityY = 0;
+            if (velocityX !== -1) {
+                velocityX = 1;
+                velocityY = 0;
+            }
             break;
         case 'ArrowLeft':
-            velocityX = -1;
-            velocityY = 0;
+            if (velocityX !== 1) {
+                velocityX = -1;
+                velocityY = 0;
+            }
             break;
     }
 }

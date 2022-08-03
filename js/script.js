@@ -60,7 +60,7 @@ function moveStuff(){
 
     //food collision
     if(snakePosX === foodPosX && snakePosY === foodPosY){
-        alert("yum")
+        resetFood();
     }
 }
 
@@ -132,4 +132,14 @@ function keyPush(event){
     }
 }
 
+
+/**
+ * Randomize food pos
+ */
+function resetFood(){
+    foodPosX = Math.floor(Math.random() * tileCountX) * snakeSize;
+    foodPosY = Math.floor(Math.random() * tileCountY) * snakeSize;
+}
+
+resetFood();
 gameLoop();

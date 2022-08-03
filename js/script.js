@@ -3,6 +3,9 @@ document.addEventListener("keydown",function (){
     keyPush(event)
 })
 
+//score
+const title = document.getElementById("score");
+
 //canvas
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
@@ -20,8 +23,13 @@ let velocityY = 0;
 let foodPosX = 400;
 let foodPosY = 100;
 
+//game
 const tileCountX = canvas.height/snakeSize
 const tileCountY = canvas.width/snakeSize
+
+//score
+let score = 0;
+
 
 /**
  * Loop game
@@ -29,7 +37,7 @@ const tileCountY = canvas.width/snakeSize
 function gameLoop(){
     drawStuff()
     moveStuff()
-    setTimeout(gameLoop,1000/15)
+    setTimeout(gameLoop,1000/10)
     // requestAnimationFrame(gameLoop);
 }
 
@@ -60,6 +68,7 @@ function moveStuff(){
 
     //food collision
     if(snakePosX === foodPosX && snakePosY === foodPosY){
+        title.textContent = ++score;
         resetFood();
     }
 }

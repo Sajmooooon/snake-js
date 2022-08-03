@@ -6,3 +6,11 @@ body, html{
 canvas{
     border: 5px solid #f7347a;
 }
+
+h1{
+    margin-top: 0;
+    letter-spacing: -10px;
+    font-size: 4em;
+    font-weight: bold;
+    font-family: "Averin Next", Verdana;
+}

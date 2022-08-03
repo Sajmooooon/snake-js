@@ -171,7 +171,12 @@ function keyPush(event){
                 velocityY = 0;
             }
             break;
-
+        default:
+            //restart game
+            if(!gameIsRunning){
+                location.reload();
+            }
+            break;
     }
 }
 

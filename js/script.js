@@ -14,7 +14,7 @@ const context = canvas.getContext('2d');
 let gameIsRunning = true;
 
 //snake
-const tileSize = 100;
+const tileSize = 50;
 let snakePosX = 0;
 let snakePosY = canvas.height/2;
 let snakeSpeed = tileSize;
@@ -91,11 +91,7 @@ function moveStuff(){
     tail = tail.slice(-1 * snakeLength);
 
     //food collision
-    if (checkTail(foodPosX, foodPosY)){
-        title.textContent = ++score;
-        snakeLength++;
-        resetFood();
-    }
+    checkFood();
 }
 
 
@@ -185,8 +181,27 @@ function keyPush(event){
  * Randomize food pos
  */
 function resetFood(){
+    if(snakeLength === tileCountX * tileCountY){
+        gameOver();
+    }
     foodPosX = Math.floor(Math.random() * tileCountX) * tileSize;
     foodPosY = Math.floor(Math.random() * tileCountY) * tileSize;
+
+    checkFood();
+
+}
+
+
+/**
+ * Check Food position
+ */
+function checkFood(){
+    if(foodPosX === snakePosX && foodPosY === snakePosY){
+        resetFood();
+    }
+    if (tail.some((snakePart) => snakePart.x === foodPosX && snakePart.y === foodPosY)){
+        resetFood();
+    }
 }
 
 

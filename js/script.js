@@ -10,7 +10,7 @@ const context = canvas.getContext('2d');
 //snake
 const snakeSize = 50;
 let snakePosX = 0;
-let snakePosY = canvas.height/2 - snakeSize/2
+let snakePosY = canvas.height/2;
 let snakeSpeed = 50;
 
 let velocityX = 0;

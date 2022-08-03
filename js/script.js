@@ -91,7 +91,11 @@ function moveStuff(){
     tail = tail.slice(-1 * snakeLength);
 
     //food collision
-    checkFood();
+    if(foodPosX === snakePosX && foodPosY === snakePosY){
+        snakeLength++
+        title.textContent = ++score;
+        resetFood();
+    }
 }
 
 

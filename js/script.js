@@ -30,6 +30,9 @@ const tileCountY = canvas.width/snakeSize
 //score
 let score = 0;
 
+//fps
+const fps = 1000/10
+
 
 /**
  * Loop game
@@ -37,7 +40,7 @@ let score = 0;
 function gameLoop(){
     drawStuff()
     moveStuff()
-    setTimeout(gameLoop,1000/10)
+    setTimeout(gameLoop,fps)
     // requestAnimationFrame(gameLoop);
 }
 

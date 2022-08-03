@@ -14,3 +14,7 @@ h1{
     font-weight: bold;
     font-family: "Averin Next", Verdana;
 }
+
+h1 strong{
+    font-size: 1.35em;
+}

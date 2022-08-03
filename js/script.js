@@ -16,6 +16,9 @@ let snakeSpeed = 50;
 let velocityX = 0;
 let velocityY = 0;
 
+//food
+let foodPosX = 400;
+let foodPosY = 100;
 
 const tileCountX = canvas.height/snakeSize
 const tileCountY = canvas.width/snakeSize
@@ -38,6 +41,7 @@ function moveStuff(){
     snakePosX += snakeSpeed * velocityX;
     snakePosY += snakeSpeed * velocityY;
 
+    //wall collision
     if (snakePosX > (canvas.width - snakeSize)){
         snakePosX = 0;
     }
@@ -53,6 +57,11 @@ function moveStuff(){
     if (snakePosY < 0){
         snakePosY = canvas.height;
     }
+
+    //food collision
+    if(snakePosX === foodPosX && snakePosY === foodPosY){
+        alert("yum")
+    }
 }
 
 /**
@@ -65,6 +74,8 @@ function drawStuff(){
     drawGrid()
     //snake
     rectangle('black',snakePosX,snakePosY,snakeSize,snakeSize)
+
+    rectangle('#00bfff',foodPosX,foodPosY,snakeSize,snakeSize)
 }
 
 

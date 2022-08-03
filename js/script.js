@@ -11,10 +11,14 @@ const context = canvas.getContext('2d');
 const snakeSize = 50;
 let snakePosX = 0;
 let snakePosY = canvas.height/2 - snakeSize/2
-let snakeSpeed = 5;
+let snakeSpeed = 50;
 
 let velocityX = 0;
 let velocityY = 0;
+
+
+const tileCountX = canvas.height/snakeSize
+const tileCountY = canvas.width/snakeSize
 
 /**
  * Loop game
@@ -22,7 +26,8 @@ let velocityY = 0;
 function gameLoop(){
     drawStuff()
     moveStuff()
-    requestAnimationFrame(gameLoop);
+    setTimeout(gameLoop,1000/15)
+    // requestAnimationFrame(gameLoop);
 }
 
 
@@ -54,8 +59,24 @@ function moveStuff(){
  * Draw Snake
  */
 function drawStuff(){
-    rectangle('white',0,0,canvas.width,canvas.height)
+    //background
+    rectangle('#ffbf00',0,0,canvas.width,canvas.height)
+    //grid
+    drawGrid()
+    //snake
     rectangle('black',snakePosX,snakePosY,snakeSize,snakeSize)
+}
+
+
+/**
+ * Draw Grid
+ */
+function drawGrid(){
+    for (let i = 0;i<tileCountX;i++){
+        for (let j = 0; j<tileCountY;j++){
+            rectangle('#fff',snakeSize*i,snakeSize*j,snakeSize-1,snakeSize-1)
+        }
+    }
 }
 
 

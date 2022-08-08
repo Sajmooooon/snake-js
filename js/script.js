@@ -56,13 +56,9 @@ function gameLoop(){
 
 
 /**
- * Move snake
+ * Wall collision
  */
-function moveStuff(){
-    snakePosX += snakeSpeed * velocityX;
-    snakePosY += snakeSpeed * velocityY;
-
-    //wall collision
+function wallCollision(){
     if (snakePosX > (canvas.width - tileSize)){
         snakePosX = 0;
     }
@@ -78,6 +74,30 @@ function moveStuff(){
     if (snakePosY < 0){
         snakePosY = canvas.height;
     }
+}
+
+
+/**
+ * Wall collision Game Over
+ */
+function wallCollisionOver(){
+    if ((snakePosX > (canvas.width - tileSize)) || (snakePosX < 0) ||
+        (snakePosY > (canvas.height - tileSize)) || ((snakePosY < 0))){
+        gameOver();
+    }
+}
+
+
+/**
+ * Move snake
+ */
+function moveStuff(){
+    snakePosX += snakeSpeed * velocityX;
+    snakePosY += snakeSpeed * velocityY;
+
+    //wall collision
+    // wallCollision()
+    wallCollisionOver();
 
     //Game Over
     if (checkTail(snakePosX, snakePosY)){

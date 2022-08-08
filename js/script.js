@@ -110,11 +110,13 @@ function drawStuff(){
 
     //tail
     tail.forEach(snakePart =>{
-        rectangle('#555',snakePart.x,snakePart.y,tileSize,tileSize)
+        circle('#555',snakePart.x,snakePart.y,tileSize,tileSize)
+        // rectangle('#555',snakePart.x,snakePart.y,tileSize,tileSize)
     })
 
     //snake
-    rectangle('black',snakePosX,snakePosY,tileSize,tileSize)
+    circle('black',snakePosX,snakePosY,tileSize,tileSize)
+    // rectangle('black',snakePosX,snakePosY,tileSize,tileSize)
 
     //food
     rectangle('#00bfff',foodPosX,foodPosY,tileSize,tileSize)
@@ -139,6 +141,18 @@ function drawGrid(){
 function rectangle(color,x,y,width,height){
     context.fillStyle = color;
     context.fillRect(x,y, width, height);
+}
+
+
+/**
+ * Draw circle
+ */
+function circle(color,x,y,width,height){
+    context.beginPath();
+    context.arc(x+(tileSize/2),y+(tileSize/2), width/2, 0, 2 * Math.PI, false);
+    context.fillStyle = color;
+    context.fill();
+    context.stroke();
 }
 
 
